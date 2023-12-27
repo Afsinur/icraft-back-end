@@ -13,7 +13,7 @@ const listen = () => {
 };
 
 //dbURI
-const dbURI = process.env.dbURI;
+const dbURI = process.env.DB_URI;
 const dbURIoptions = {};
 //connection function
 (async () => {
@@ -93,4 +93,7 @@ app.get("/info/:email", async (req, res) => {
 
   let data = await User.findOne({ email });
   res.status(200).json(data);
+});
+app.get("/", (req, res) => {
+  res.status(200).json({ done: 1 });
 });
